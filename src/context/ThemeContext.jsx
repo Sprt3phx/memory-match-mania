@@ -1,11 +1,17 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 
 //Create the global context
 const ThemeContext = createContext();
 
 //Create a provider component
 export function ThemeProvider({ children }) {
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(
+      () => localStorage.getItem("theme") || "light"
+    );
+
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
 //Toggle between light and dark themes
     const toggleTheme = () => {

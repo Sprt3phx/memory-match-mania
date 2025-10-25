@@ -53,6 +53,16 @@ export default function Settings() {
             <option>8 x 8</option>
           </ThemeSelect>
         </div>
+
+        <button
+          onClick={() => {
+            localStorage.removeItem("memoryMatchLevel");
+            window.location.reload();
+          }}
+          className="mt-6 bg-red-500 text-black px-4 py-2 rounded-md hover:bg-red-600 transition"
+        >
+          Reset Progress
+        </button>
       </section>
     );
 }

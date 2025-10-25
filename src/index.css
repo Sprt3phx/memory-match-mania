@@ -82,3 +82,7 @@ button:focus-visible {
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+
+html, body, #root {
+  height: 100%;
+}
